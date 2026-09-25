@@ -19,6 +19,11 @@ export default defineConfig({
 			adapter: adapter()
 		})
 	],
+	server: {
+		watch: {
+			usePolling: true
+		}
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
