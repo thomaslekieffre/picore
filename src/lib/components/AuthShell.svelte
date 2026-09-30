@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PicoBird, { type PicoPose } from './PicoBird.svelte';
+	import PicoReposAnimated from './PicoReposAnimated.svelte';
 	import logoMark from '$lib/assets/brand/logo-mark-sur-braise.svg';
 	import type { Snippet } from 'svelte';
 
@@ -34,7 +35,11 @@
 		<div
 			class="pointer-events-none absolute right-5 bottom-6 z-0 w-44 sm:w-52 lg:w-[280px] [&_svg]:h-auto [&_svg]:w-full"
 		>
-			<PicoBird {pose} onAccent class="h-auto w-full" />
+			{#if pose === 'repos'}
+				<PicoReposAnimated onAccent class="w-full" />
+			{:else}
+				<PicoBird {pose} onAccent class="h-auto w-full" />
+			{/if}
 		</div>
 	</aside>
 

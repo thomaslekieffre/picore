@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PicoBird from '$lib/components/PicoBird.svelte';
+	import PicoContentAnimated from '$lib/components/PicoContentAnimated.svelte';
 
 	let { data } = $props();
 	let username = $derived(data.user.name || 'toi');
@@ -18,7 +18,7 @@
 	<main class="mx-auto max-w-5xl px-6 pb-16 pt-4">
 		<div class="mx-auto mb-10 max-w-2xl text-center">
 			<div class="mx-auto mb-6 w-36">
-				<PicoBird pose="repos" class="h-auto w-full" />
+				<PicoContentAnimated class="w-full" />
 			</div>
 			<h1 class="typo-t1 text-encre">Salut @{username}, moi c’est Pico.</h1>
 			<p class="typo-corps mx-auto mt-3 max-w-xl text-brume">

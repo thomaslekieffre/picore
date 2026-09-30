@@ -32,7 +32,7 @@
 			}
 
 			const check = await fetch(
-				`/api/auth/check?email=${encodeURIComponent(mail)}&username=${encodeURIComponent(handle)}`
+				`/api/account/check?email=${encodeURIComponent(mail)}&username=${encodeURIComponent(handle)}`
 			);
 			if (!check.ok) {
 				errorMsg = 'Impossible de vérifier ces infos';
@@ -103,7 +103,7 @@
 					placeholder="camille"
 					maxlength={21}
 					minlength={1}
-					pattern="[a-zA-Z0-9._-]{1,21}"
+					pattern={'[a-zA-Z0-9._-]{1,21}'}
 					hint="1 à 21 caractères · lettres, chiffres, . _ -"
 					bind:value={username}
 				/>

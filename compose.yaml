@@ -26,8 +26,11 @@ services:
     env_file:
       - .env
     environment:
-      # override : depuis le container, le host DB c'est "db"
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
+      BETTER_AUTH_URL: ${BETTER_AUTH_URL}
+      RESEND_API_KEY: ${RESEND_API_KEY}
+      EMAIL_FROM: ${EMAIL_FROM}
     volumes:
       - .:/app
       - /app/node_modules

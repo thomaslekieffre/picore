@@ -1,11 +1,12 @@
 import { betterAuth } from 'better-auth';
 import { APIError, createAuthMiddleware } from 'better-auth/api';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { magicLink } from 'better-auth/plugins';
+import { magicLink } from 'better-auth/plugins/magic-link';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
 import { getRequestEvent } from '$app/server';
 import { db } from './server/db/index';
 import * as schema from './server/db/schema';
+import { sendMagicLinkEmail } from './server/mail';
 
 const USERNAME_RE = /^[a-zA-Z0-9._-]{1,21}$/;
 
@@ -52,7 +53,7 @@ export const auth = betterAuth({
 	plugins: [
 		magicLink({
 			sendMagicLink: async ({ email, url }) => {
-				console.log(`Lien magique pour ${email} : ${url}`);
+				await sendMagicLinkEmail({ email, url });
 			}
 		}),
 		sveltekitCookies(getRequestEvent)

@@ -2,7 +2,6 @@ import { pgTable, text, timestamp, boolean, index, serial, varchar, integer, uni
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
-  // username Picore (stocké dans name Better Auth)
   name: varchar('name', { length: 21 }).notNull().unique(),
   email: text("email").notNull().unique(),
   emailVerified: boolean("email_verified").default(false).notNull(),

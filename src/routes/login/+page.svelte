@@ -21,7 +21,7 @@
 		loading = true;
 
 		try {
-			const check = await fetch(`/api/auth/check?email=${encodeURIComponent(email.trim().toLowerCase())}`);
+			const check = await fetch(`/api/account/check?email=${encodeURIComponent(email.trim().toLowerCase())}`);
 			if (!check.ok) {
 				errorMsg = 'Impossible de vérifier cet e-mail';
 				return;
